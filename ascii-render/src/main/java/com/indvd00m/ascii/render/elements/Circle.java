@@ -6,7 +6,9 @@ import com.indvd00m.ascii.render.api.IContext;
 import com.indvd00m.ascii.render.api.IElement;
 import com.indvd00m.ascii.render.api.IPoint;
 
-
+/**
+ * classe publica
+ */
 public class Circle implements IElement {
 
 	protected int x;
@@ -20,6 +22,12 @@ public class Circle implements IElement {
 		this.radius = Integer.MIN_VALUE;
 	}
 
+	/**
+	 *
+	 * @param x
+	 * @param y
+	 * @param radius
+	 */
 	public Circle(int x, int y, int radius) {
 		super();
 		this.x = x;
@@ -27,6 +35,12 @@ public class Circle implements IElement {
 		this.radius = radius;
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public IPoint draw(ICanvas canvas, IContext context) {
 		int x = this.x;
@@ -42,7 +56,10 @@ public class Circle implements IElement {
 		if (radius == Integer.MIN_VALUE) {
 			radius = Math.min(canvas.getWidth(), canvas.getHeight()) / 2;
 		}
-
+/**
+ * doppio ciclo for e ciclo if con una comparazione
+ * @return
+ */
 		for (int x1 = x - radius; x1 <= x + radius; x1++) {
 			for (int y1 = y - radius; y1 <= y + radius; y1++) {
 				double distance = Math.sqrt(Math.pow(x - x1, 2) + Math.pow(y - y1, 2));
@@ -54,6 +71,13 @@ public class Circle implements IElement {
 		return new Point(x, y);
 	}
 
+	/**
+	 *
+	 * @param d1
+	 * @param d2
+	 * @param precision
+	 * @return
+	 */
 	protected int compare(double d1, double d2, double precision) {
 		double diff = d1 - d2;
 		if (Math.abs(diff) < precision) {
@@ -78,6 +102,10 @@ public class Circle implements IElement {
 		return radius;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -112,6 +140,10 @@ public class Circle implements IElement {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
