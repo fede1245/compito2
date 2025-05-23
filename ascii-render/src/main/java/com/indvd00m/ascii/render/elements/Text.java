@@ -8,7 +8,9 @@ import com.indvd00m.ascii.render.api.IPoint;
 
 
 public class Text implements IElement {
-
+	/**
+	 *  dichiara le protected
+	 */
 	protected String text;
 	protected int x;
 	protected int y;
@@ -24,6 +26,14 @@ public class Text implements IElement {
 		this.height = Integer.MIN_VALUE;
 	}
 
+	/**
+	 *
+	 * @param text
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 */
 	public Text(String text, int x, int y, int width, int height) {
 		super();
 		this.text = text;
@@ -85,6 +95,10 @@ public class Text implements IElement {
 		return new Point(x, y);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public String getText() {
 		return text;
 	}
@@ -105,6 +119,10 @@ public class Text implements IElement {
 		return height;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -151,6 +169,10 @@ public class Text implements IElement {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

@@ -134,7 +134,7 @@ public class Rectangle implements IElement {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return
 	 */
 	public int getX() {
