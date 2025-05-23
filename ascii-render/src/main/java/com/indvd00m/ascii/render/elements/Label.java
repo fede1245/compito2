@@ -8,7 +8,9 @@ import com.indvd00m.ascii.render.api.IPoint;
 
 
 public class Label implements IElement {
-
+	/**
+	 * serie di interi protected
+	 */
 	protected String text;
 	protected int x;
 	protected int y;
@@ -22,6 +24,12 @@ public class Label implements IElement {
 		this.width = Integer.MIN_VALUE;
 	}
 
+	/**
+	 *
+	 * @param text
+	 * @param x
+	 * @param y
+	 */
 	public Label(String text, int x, int y) {
 		super();
 		this.text = text;
@@ -38,6 +46,12 @@ public class Label implements IElement {
 		this.width = width;
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public IPoint draw(ICanvas canvas, IContext context) {
 		int x = this.x;
@@ -68,6 +82,10 @@ public class Label implements IElement {
 		return new Point(x, y);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -110,6 +128,10 @@ public class Label implements IElement {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public String getText() {
 		return text;
 	}
@@ -126,6 +148,10 @@ public class Label implements IElement {
 		return width;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
