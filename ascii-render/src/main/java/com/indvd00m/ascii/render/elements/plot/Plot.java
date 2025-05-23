@@ -15,6 +15,12 @@ public class Plot extends AbstractPlotObject<Plot> {
 		super(points, region);
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public IPoint draw(ICanvas canvas, IContext context) {
 		int width = region.getWidth();
@@ -32,7 +38,9 @@ public class Plot extends AbstractPlotObject<Plot> {
 			lastY -= 1;
 			height -= 1;
 		}
-
+/**
+ * axis
+ */
 		Axis axis = context.lookupTyped(Axis.class, getTypedId());
 		if (axis != null) {
 			startX += 1;
