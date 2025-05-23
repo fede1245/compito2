@@ -19,6 +19,9 @@ import java.util.Set;
  * @author Federico Verzi
  */
 
+/**
+ * crea la classe
+ */
 public class Context implements IContext {
 
 	protected int width;
@@ -34,6 +37,10 @@ public class Context implements IContext {
 
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int getWidth() {
 		return width;
@@ -44,6 +51,10 @@ public class Context implements IContext {
 		return height;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public List<ILayer> getLayers() {
 		return Collections.unmodifiableList(layers);
@@ -54,6 +65,13 @@ public class Context implements IContext {
 		return lookup(clazz, true);
 	}
 
+	/**
+	 *
+	 * @param clazz
+	 * @param includeSuccessors
+	 * @return
+	 * @param <E>
+	 */
 	@Override
 	public <E extends IElement> E lookup(Class<E> clazz, boolean includeSuccessors) {
 		List<E> elements = lookupAll(clazz, includeSuccessors);
@@ -63,11 +81,24 @@ public class Context implements IContext {
 		return null;
 	}
 
+	/**
+	 *
+	 * @param clazz
+	 * @return
+	 * @param <E>
+	 */
 	@Override
 	public <E extends IElement> List<E> lookupAll(Class<E> clazz) {
 		return lookupAll(clazz, true);
 	}
 
+	/**
+	 *
+	 * @param clazz
+	 * @param includeSuccessors
+	 * @return
+	 * @param <E>
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public <E extends IElement> List<E> lookupAll(Class<E> clazz, boolean includeSuccessors) {
@@ -83,7 +114,9 @@ public class Context implements IContext {
 				}
 			}
 		}
-
+/**
+ * serie di if con un ciclo for
+ */
 		if (includeSuccessors) {
 			for (Class<IElement> nextClazz : elementsByClass.keySet()) {
 				if (clazz.isAssignableFrom(nextClazz)) {
@@ -98,11 +131,26 @@ public class Context implements IContext {
 		return (List<E>) new ArrayList<IElement>(set);
 	}
 
+	/**
+	 *
+	 * @param clazz
+	 * @param layer
+	 * @return
+	 * @param <E>
+	 */
 	@Override
 	public <E extends IElement> E lookup(Class<E> clazz, ILayer layer) {
 		return lookup(clazz, true, layer);
 	}
 
+	/**
+	 *
+	 * @param clazz
+	 * @param includeSuccessors
+	 * @param layer
+	 * @return
+	 * @param <E>
+	 */
 	@Override
 	public <E extends IElement> E lookup(Class<E> clazz, boolean includeSuccessors, ILayer layer) {
 		List<E> elements = lookupAll(clazz, includeSuccessors, layer);
@@ -135,7 +183,9 @@ public class Context implements IContext {
 				}
 			}
 		}
-
+/**
+ * condizione e for
+ */
 		if (includeSuccessors) {
 			for (Class<IElement> nextClazz : elementsByClass.keySet()) {
 				if (clazz.isAssignableFrom(nextClazz)) {
@@ -155,6 +205,11 @@ public class Context implements IContext {
 		return (List<E>) new ArrayList<IElement>(set);
 	}
 
+	/**
+	 *
+	 * @param element
+	 * @return
+	 */
 	@Override
 	public ILayer lookupLayer(IElement element) {
 		Set<ILayer> elementLayers = layersByElement.get(element);
@@ -181,6 +236,14 @@ public class Context implements IContext {
 		return lookupTyped(type, typedId, true);
 	}
 
+	/**
+	 *
+	 * @param type
+	 * @param typedId
+	 * @param includeSuccessors
+	 * @return
+	 * @param <T>
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T extends ITypedIdentified<T>> T lookupTyped(Class<T> type, int typedId, boolean includeSuccessors) {
@@ -214,6 +277,13 @@ public class Context implements IContext {
 		return lookupTyped(type, true);
 	}
 
+	/**
+	 *
+	 * @param type
+	 * @param includeSuccessors
+	 * @return
+	 * @param <T>
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T extends ITypedIdentified<T>> List<T> lookupTyped(Class<T> type, boolean includeSuccessors) {
@@ -245,11 +315,23 @@ public class Context implements IContext {
 		return new ArrayList<T>(set);
 	}
 
+	/**
+	 *
+	 * @param element
+	 * @return
+	 */
 	@Override
 	public boolean contains(IElement element) {
 		return layersByElement.containsKey(element);
 	}
 
+	/**
+	 *
+ 	 * @param point
+	 * @param source
+	 * @param target
+	 * @return
+	 */
 	@Override
 	public IPoint transform(IPoint point, ILayer source, ILayer target) {
 		IRegion sourceRegion = source.getRegion();
@@ -265,6 +347,13 @@ public class Context implements IContext {
 		return new Point(x, y);
 	}
 
+	/**
+	 *
+	 * @param point
+	 * @param source
+	 * @param target
+	 * @return
+	 */
 	@Override
 	public IPoint transform(IPoint point, IElement source, IElement target) {
 		ILayer sourceLayer = lookupLayer(source);
