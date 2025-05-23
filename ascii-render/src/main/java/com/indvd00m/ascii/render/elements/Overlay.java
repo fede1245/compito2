@@ -10,7 +10,9 @@ import com.indvd00m.ascii.render.api.IRegion;
 
 
 public class Overlay implements IElement {
-
+	/**
+	 * serie di protected
+	 */
 	protected int x;
 	protected int y;
 	protected int width;
@@ -38,6 +40,15 @@ public class Overlay implements IElement {
 		this(x, y, width, height, overlay, false);
 	}
 
+	/**
+	 *
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 * @param overlay
+	 * @param opacity
+	 */
 	public Overlay(int x, int y, int width, int height, ICanvas overlay, boolean opacity) {
 		super();
 		this.x = x;
@@ -48,6 +59,12 @@ public class Overlay implements IElement {
 		this.opacity = opacity;
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public IPoint draw(ICanvas canvas, IContext context) {
 		int x = this.x;
@@ -74,6 +91,12 @@ public class Overlay implements IElement {
 		return new Point(x, y);
 	}
 
+	/**
+	 *
+	 * @param c1
+	 * @param c2
+	 * @param region
+	 */
 	protected void drawOver(ICanvas c1, ICanvas c2, IRegion region) {
 		for (int c1x = region.getX(); c1x < region.getX() + region.getWidth(); c1x++) {
 			for (int c1y = region.getY(); c1y < region.getY() + region.getHeight(); c1y++) {
@@ -106,6 +129,11 @@ public class Overlay implements IElement {
 		return result;
 	}
 
+	/**
+	 *
+	 * @param obj
+	 * @return
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -143,6 +171,10 @@ public class Overlay implements IElement {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public int getX() {
 		return x;
 	}
