@@ -19,7 +19,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
+/**
+ * classe publica con variabili protected
+ */
 public class ContextBuilder implements IContextBuilder {
 
 	protected int width;
@@ -35,6 +37,10 @@ public class ContextBuilder implements IContextBuilder {
 		return new ContextBuilder();
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public IContext build() {
 		Context context = new Context();
@@ -53,6 +59,11 @@ public class ContextBuilder implements IContextBuilder {
 		return this;
 	}
 
+	/**
+	 *
+	 * @param height
+	 * @return
+	 */
 	@Override
 	public IContextBuilder height(int height) {
 		this.height = height;
@@ -105,6 +116,10 @@ public class ContextBuilder implements IContextBuilder {
 		}
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public IContextBuilder layer() {
 		Layer layer = new Layer(new Region(0, 0, width, height));
@@ -119,6 +134,14 @@ public class ContextBuilder implements IContextBuilder {
 		return this;
 	}
 
+	/**
+	 *
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 * @return
+	 */
 	@Override
 	public IContextBuilder layer(int x, int y, int width, int height) {
 		return layer(new Region(x, y, width, height));
@@ -134,6 +157,12 @@ public class ContextBuilder implements IContextBuilder {
 		return this;
 	}
 
+	/**
+	 *
+	 * @param region
+	 * @param elements
+	 * @return
+	 */
 	@Override
 	public IContextBuilder layer(IRegion region, IElement... elements) {
 		Layer layer = new Layer(region);
