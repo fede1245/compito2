@@ -12,11 +12,17 @@ import com.indvd00m.ascii.render.api.ILayer;
 import com.indvd00m.ascii.render.api.IRegion;
 import com.indvd00m.ascii.render.api.IRender;
 
-
+/**
+ *  creazione della classe implementata
+ */
 public class Render implements IRender {
 
 	protected boolean pseudoCanvas;
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public IContextBuilder newBuilder() {
 		return ContextBuilder.newBuilder();
