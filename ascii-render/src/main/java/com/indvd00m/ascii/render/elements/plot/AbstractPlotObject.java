@@ -13,7 +13,9 @@ import java.util.List;
 
 
 public abstract class AbstractPlotObject<P extends AbstractPlotObject<P>> implements IElement, ITypedIdentified<P> {
-
+	/**
+	 * protected list
+	 */
 	protected int typedId;
 	protected List<IPlotPoint> points;
 	protected IPlotPoints plotPoints;
@@ -38,6 +40,10 @@ public abstract class AbstractPlotObject<P extends AbstractPlotObject<P>> implem
 		return result;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public List<IPlotPoint> getPoints() {
 		return points;
 	}
