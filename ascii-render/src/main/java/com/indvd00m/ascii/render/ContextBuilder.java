@@ -238,6 +238,11 @@ public class ContextBuilder implements IContextBuilder {
 		return this;
 	}
 
+	/**
+	 *
+	 * @param elements
+	 * @return
+	 */
 	@Override
 	public IContextBuilder elements(IElement... elements) {
 		if (layers.isEmpty()) {
@@ -262,6 +267,11 @@ public class ContextBuilder implements IContextBuilder {
 		return this;
 	}
 
+	/**
+	 *
+	 * @param clazz
+	 * @return
+	 */
 	protected LinkedHashSet<Class<?>> getAncestors(Class<?> clazz) {
 		LinkedHashSet<Class<?>> ancestors = new LinkedHashSet<Class<?>>();
 
