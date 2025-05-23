@@ -28,6 +28,11 @@ public class Render implements IRender {
 		return ContextBuilder.newBuilder();
 	}
 
+	/**
+	 * 
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public ICanvas render(IContext context) {
 		final ICanvas canvas;
@@ -47,6 +52,14 @@ public class Render implements IRender {
 		return canvas;
 	}
 
+	/**
+	 *
+	 *
+	 * @param c1
+	 * @param c2
+	 * @param layer
+	 * @param region
+	 */
 	protected void drawOver(ICanvas c1, ICanvas c2, ILayer layer, IRegion region) {
 		boolean opacity = layer.isOpacity();
 		for (int c1x = region.getX(); c1x < region.getX() + region.getWidth(); c1x++) {
@@ -61,6 +74,10 @@ public class Render implements IRender {
 		}
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public boolean isPseudoCanvas() {
 		return pseudoCanvas;
