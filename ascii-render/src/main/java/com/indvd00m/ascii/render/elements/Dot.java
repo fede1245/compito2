@@ -6,7 +6,9 @@ import com.indvd00m.ascii.render.api.IContext;
 import com.indvd00m.ascii.render.api.IElement;
 import com.indvd00m.ascii.render.api.IPoint;
 
-
+/**
+ * creazione della classe
+ */
 public class Dot implements IElement {
 
 	protected int x;
@@ -24,6 +26,12 @@ public class Dot implements IElement {
 		this.y = y;
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public IPoint draw(ICanvas canvas, IContext context) {
 		int x = this.x;
@@ -48,6 +56,10 @@ public class Dot implements IElement {
 		return y;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,6 +69,11 @@ public class Dot implements IElement {
 		return result;
 	}
 
+	/**
+	 *
+	 * @param obj
+	 * @return
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -78,6 +95,10 @@ public class Dot implements IElement {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
