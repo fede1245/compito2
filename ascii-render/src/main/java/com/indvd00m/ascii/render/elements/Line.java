@@ -16,12 +16,23 @@ public class Line implements IElement {
 	protected IPoint end;
 	protected char pen = '●';
 
+	/**
+	 *
+	 * @param start
+	 * @param end
+	 */
 	public Line(IPoint start, IPoint end) {
 		super();
 		this.start = start;
 		this.end = end;
 	}
 
+	/**
+	 *
+	 * @param start
+	 * @param end
+	 * @param pen
+	 */
 	public Line(IPoint start, IPoint end, char pen) {
 		super();
 		this.start = start;
@@ -29,6 +40,12 @@ public class Line implements IElement {
 		this.pen = pen;
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public IPoint draw(ICanvas canvas, IContext context) {
 		int x1 = start.getX();
@@ -63,7 +80,9 @@ public class Line implements IElement {
 		} else if (w > 0) {
 			dx2 = 1;
 		}
-
+/**
+ *  2 interi , 1 piu lingo e 1 piu corto
+ */
 		int longest = Math.abs(w);
 		int shortest = Math.abs(h);
 
