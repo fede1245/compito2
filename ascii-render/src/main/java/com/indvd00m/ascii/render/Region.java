@@ -6,7 +6,9 @@ package com.indvd00m.ascii.render;
 
 import com.indvd00m.ascii.render.api.IRegion;
 
-
+/**
+ * classe publica implementata
+ */
 public class Region implements IRegion {
 
 	protected int x;
@@ -28,6 +30,10 @@ public class Region implements IRegion {
 		this.height = height;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int getX() {
 		return x;
@@ -59,6 +65,11 @@ public class Region implements IRegion {
 		return result;
 	}
 
+	/**
+	 *
+	 * @param obj
+	 * @return
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -86,6 +97,10 @@ public class Region implements IRegion {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
