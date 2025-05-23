@@ -8,7 +8,9 @@ import com.indvd00m.ascii.render.api.IPoint;
 
 
 public class Ellipse implements IElement {
-
+	/**
+	 * interi protected
+	 */
 	protected int x;
 	protected int y;
 	protected int width;
@@ -30,6 +32,12 @@ public class Ellipse implements IElement {
 		this.height = height;
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public IPoint draw(ICanvas canvas, IContext context) {
 		int x = this.x;
@@ -49,7 +57,9 @@ public class Ellipse implements IElement {
 		if (height == Integer.MIN_VALUE) {
 			height = canvas.getHeight() - 1;
 		}
-
+/**
+ * dichiarazione di una serie di double
+ */
 		double a = width / 2d;
 		double b = height / 2d;
 		double c = Math.sqrt(Math.abs(Math.pow(a, 2) - Math.pow(b, 2)));
@@ -69,6 +79,13 @@ public class Ellipse implements IElement {
 		return new Point(x, y);
 	}
 
+	/**
+	 *
+	 * @param d1
+	 * @param d2
+	 * @param precision
+	 * @return
+	 */
 	protected int compare(double d1, double d2, double precision) {
 		double diff = d1 - d2;
 		if (Math.abs(diff) < precision) {
@@ -108,6 +125,11 @@ public class Ellipse implements IElement {
 		return result;
 	}
 
+	/**
+	 *
+	 * @param obj
+	 * @return
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -135,6 +157,10 @@ public class Ellipse implements IElement {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
