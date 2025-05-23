@@ -16,7 +16,9 @@ import java.io.InputStream;
 
 
 public class PseudoText implements IElement {
-
+	/**
+	 * serie di int protected
+	 */
 	protected String text;
 	protected int x;
 	protected int y;
@@ -32,6 +34,11 @@ public class PseudoText implements IElement {
 		this.height = Integer.MIN_VALUE;
 	}
 
+	/**
+	 *
+	 * @param text
+	 * @param antialising
+	 */
 	public PseudoText(String text, boolean antialising) {
 		super();
 		this.text = text;
@@ -41,6 +48,12 @@ public class PseudoText implements IElement {
 		this.antialising = antialising;
 	}
 
+	/**
+	 *
+	 * @param text
+	 * @param font
+	 * @param antialising
+	 */
 	public PseudoText(String text, Font font, boolean antialising) {
 		super();
 		this.text = text;
@@ -68,6 +81,15 @@ public class PseudoText implements IElement {
 		this.antialising = antialising;
 	}
 
+	/**
+	 *
+	 * @param text
+	 * @param x
+	 * @param y
+	 * @param height
+	 * @param font
+	 * @param antialising
+	 */
 	public PseudoText(String text, int x, int y, int height, Font font, boolean antialising) {
 		super();
 		this.text = text;
@@ -78,6 +100,12 @@ public class PseudoText implements IElement {
 		this.antialising = antialising;
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public IPoint draw(ICanvas canvas, IContext context) {
 		int x = this.x;
@@ -99,7 +127,9 @@ public class PseudoText implements IElement {
 		}
 
 		int width = canvas.getWidth() - x;
-
+/**
+ * gestione grafica
+ */
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		Graphics2D graphics = image.createGraphics();
 		graphics.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
@@ -146,6 +176,13 @@ public class PseudoText implements IElement {
 		return new Point(x, y);
 	}
 
+	/**
+	 *
+	 * @param fontColor
+	 * @param backgroundColor
+	 * @param pixelColor
+	 * @return
+	 */
 	protected char colorToChar(Color fontColor, Color backgroundColor, Color pixelColor) {
 		if (backgroundColor.equals(pixelColor)) {
 			return ' ';
@@ -205,6 +242,11 @@ public class PseudoText implements IElement {
 		}
 	}
 
+	/**
+	 *
+	 * @param image
+	 * @param path
+	 */
 	protected void writeImageToPNG(BufferedImage image, String path) {
 		try {
 			ImageIO.write(image, "png", new File(path));
@@ -240,6 +282,10 @@ public class PseudoText implements IElement {
 		return antialising;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -253,6 +299,11 @@ public class PseudoText implements IElement {
 		return result;
 	}
 
+	/**
+	 *
+	 * @param obj
+	 * @return
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -294,6 +345,10 @@ public class PseudoText implements IElement {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

@@ -192,7 +192,7 @@ public class Line implements IElement {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return
 	 */
 	@Override
