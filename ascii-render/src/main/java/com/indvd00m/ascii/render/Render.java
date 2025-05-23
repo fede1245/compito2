@@ -1,7 +1,7 @@
-
 /**
- * @author Federico Verzi
- 
+ * * @author Federico Verzi
+ */
+
 package com.indvd00m.ascii.render;
 
 import com.indvd00m.ascii.render.api.ICanvas;
