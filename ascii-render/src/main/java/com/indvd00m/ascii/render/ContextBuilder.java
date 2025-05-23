@@ -188,6 +188,12 @@ public class ContextBuilder implements IContextBuilder {
 		return this;
 	}
 
+	/**
+	 *
+	 * @param region
+	 * @param elements
+	 * @return
+	 */
 	@Override
 	public IContextBuilder layer(IRegion region, List<IElement> elements) {
 		Layer layer = new Layer(region);
@@ -198,6 +204,15 @@ public class ContextBuilder implements IContextBuilder {
 		return this;
 	}
 
+	/**
+	 *
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 * @param elements
+	 * @return
+	 */
 	@Override
 	public IContextBuilder layer(int x, int y, int width, int height, List<IElement> elements) {
 		return layer(new Region(x, y, width, height), elements);
