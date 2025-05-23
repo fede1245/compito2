@@ -56,7 +56,9 @@ public class PseudoCanvas extends Canvas {
 				textContent.append('\n');
 				textContent.append(line2);
 			}
-
+/**
+ * ciclo for che imposta i caratteri
+ */
 			for (int i = 0; i < width; i += 2) {
 				char char1 = NULL_CHAR;
 				char char2 = NULL_CHAR;
@@ -87,6 +89,14 @@ public class PseudoCanvas extends Canvas {
 		this.cachedText = pseudoContent.toString().replace(NULL_CHAR, ' ');
 	}
 
+	/**
+	 *
+	 * @param char1
+	 * @param char2
+	 * @param char3
+	 * @param char4
+	 * @return Quadrants
+	 */
 	protected char merge(char char1, char char2, char char3, char char4) {
 		byte quadrant = 0x0;
 		quadrant |= isEmptyChar(char1) ? 0x0 : 0x8;
