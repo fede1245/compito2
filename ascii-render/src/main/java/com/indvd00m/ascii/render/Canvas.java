@@ -59,6 +59,9 @@ public class Canvas implements ICanvas {
 		}
 	}
 
+	/**
+	 *  crea la funzione update Cache
+	 */
 	protected void updateCache() {
 		StringBuilder sb = new StringBuilder();
 		for (Iterator<StringBuilder> it = lines.iterator(); it.hasNext(); ) {
@@ -73,15 +76,34 @@ public class Canvas implements ICanvas {
 		this.cachedText = text.replace(NULL_CHAR, ' ');
 	}
 
+	/**
+	 *
+	 * @param c
+	 * @param count
+	 * @return
+	 */
 	protected String repeatChar(char c, int count) {
 		return repeatString(c + "", count);
 	}
 
+	/**
+	 *
+	 * @param s
+	 * @param count
+	 * @return
+	 */
 	protected String repeatString(String s, int count) {
 		String repeated = new String(new char[count]).replace(NULL_CHAR + "", s);
 		return repeated;
 	}
 
+	/**
+	 *
+	 * @param x
+	 * @param y
+	 * @param c
+	 * scrivi
+	 */
 	@Override
 	public void draw(int x, int y, char c) {
 		draw(x, y, c + "");
