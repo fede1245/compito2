@@ -109,11 +109,24 @@ public class Canvas implements ICanvas {
 		draw(x, y, c + "");
 	}
 
+	/**
+	 *
+ 	 * @param x
+	 * @param y
+	 * @param c
+	 * @param count
+	 */
 	@Override
 	public void draw(int x, int y, char c, int count) {
 		draw(x, y, c + "", count);
 	}
 
+	/**
+	 *
+	 * @param x
+	 * @param y
+	 * @param s
+	 */
 	@Override
 	public void draw(int x, int y, String s) {
 		if (x >= width) {
@@ -122,7 +135,9 @@ public class Canvas implements ICanvas {
 		if (y >= height) {
 			return;
 		}
-
+/**
+ * condizione if
+ */
 		if (s.matches("(?s).*[\\n\\r]+.*")) { // multiline string
 			for (String line : s.split("[\\n\\r]")) {
 				draw(x, y++, line);
@@ -132,7 +147,9 @@ public class Canvas implements ICanvas {
 			}
 			return;
 		}
-
+/**
+ * serie di condizioni
+ */
 		// single line string
 		if (y < 0) {
 			return;
