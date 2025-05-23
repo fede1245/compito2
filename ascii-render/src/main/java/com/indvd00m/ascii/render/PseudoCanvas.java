@@ -8,7 +8,9 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
+/**
+ * estendi la classe, poi assegna un valore byte ad ogni parte del quadrante
+ */
 public class PseudoCanvas extends Canvas {
 
 	public static final char SPACE_CHAR = ' ';
@@ -38,6 +40,9 @@ public class PseudoCanvas extends Canvas {
 		super(width, height);
 	}
 
+	/**
+	 * aggiorna la cache
+	 */
 	@Override
 	protected void updateCache() {
 		StringBuilder pseudoContent = new StringBuilder();
@@ -51,6 +56,7 @@ public class PseudoCanvas extends Canvas {
 				textContent.append('\n');
 				textContent.append(line2);
 			}
+
 			for (int i = 0; i < width; i += 2) {
 				char char1 = NULL_CHAR;
 				char char2 = NULL_CHAR;
