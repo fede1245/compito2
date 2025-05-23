@@ -29,6 +29,12 @@ public class AxisLabels extends AbstractPlotObject<AxisLabels> {
 		generateLabels();
 	}
 
+	/**
+	 *
+	 * @param points
+	 * @param region
+	 * @param decimalFractionsLabelsFormat
+	 */
 	public AxisLabels(List<IPlotPoint> points, IRegion region, String decimalFractionsLabelsFormat) {
 		super(points, region);
 		this.decimalFractionsLabelsFormat = decimalFractionsLabelsFormat;
@@ -50,6 +56,12 @@ public class AxisLabels extends AbstractPlotObject<AxisLabels> {
 		generateLabels();
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public IPoint draw(ICanvas canvas, IContext context) {
 		for (AxisLabel label : labels) {
@@ -73,9 +85,11 @@ public class AxisLabels extends AbstractPlotObject<AxisLabels> {
 		int startY = region.getY();
 		int lastX = startX + width - 1;
 		int lastY = startY + height - 1;
-
+/**
+ * labels
+ */
 		{
-			// y labels
+
 			Deque<String> texts = new LinkedList<String>(textsY);
 			String topText = texts.pollLast();
 			String bottomText = texts.pollFirst();
@@ -103,7 +117,9 @@ public class AxisLabels extends AbstractPlotObject<AxisLabels> {
 			String leftText = texts.pollFirst();
 			String rightText = texts.pollLast();
 			double textsStep = (double) (width - labelsYWidth) / (double) (texts.size() + 1);
-
+/**
+ * stringa
+ */
 			String text = texts.pollFirst();
 			int num = 0;
 			while (text != null) {
@@ -135,6 +151,13 @@ public class AxisLabels extends AbstractPlotObject<AxisLabels> {
 		return texts;
 	}
 
+	/**
+	 *
+ 	 * @param type
+	 * @param value
+	 * @param labelsStep
+	 * @return
+	 */
 	protected String format(AxisType type, double value, double labelsStep) {
 		String label = null;
 		if (labelsStep < 10d) {
@@ -156,6 +179,10 @@ public class AxisLabels extends AbstractPlotObject<AxisLabels> {
 		return labelsYWidth;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -172,6 +199,10 @@ public class AxisLabels extends AbstractPlotObject<AxisLabels> {
 		return builder.toString();
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public List<AxisLabel> getLabels() {
 		return Collections.unmodifiableList(labels);
 	}
