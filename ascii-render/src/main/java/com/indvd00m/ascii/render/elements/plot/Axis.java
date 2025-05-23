@@ -17,6 +17,12 @@ public class Axis extends AbstractPlotObject<Axis> {
 		super(points, region);
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public IPoint draw(ICanvas canvas, IContext context) {
 		int width = region.getWidth();
@@ -57,6 +63,10 @@ public class Axis extends AbstractPlotObject<Axis> {
 		return anchorPoint;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
