@@ -8,7 +8,9 @@ import com.indvd00m.ascii.render.api.IPoint;
 
 
 public class Rectangle implements IElement {
-
+	/**
+	 * serie interi protected
+	 */
 	protected int x;
 	protected int y;
 	protected int width;
@@ -30,6 +32,12 @@ public class Rectangle implements IElement {
 		this.height = height;
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public IPoint draw(ICanvas canvas, IContext context) {
 		int x = this.x;
@@ -63,6 +71,10 @@ public class Rectangle implements IElement {
 		return new Point(x, y);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -89,6 +101,11 @@ public class Rectangle implements IElement {
 		return result;
 	}
 
+	/**
+	 *
+ 	 * @param obj
+	 * @return
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -116,6 +133,10 @@ public class Rectangle implements IElement {
 		return true;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int getX() {
 		return x;
 	}
