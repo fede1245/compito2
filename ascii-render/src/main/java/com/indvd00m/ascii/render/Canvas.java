@@ -11,10 +11,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * implementa canvas
+ */
 public class Canvas implements ICanvas {
 
 	public static final char NULL_CHAR = '\0';
-
+	/**
+	 * crea tutti i valori, string e int protected
+	 */
 	protected final int width;
 	protected final int height;
 	protected final List<StringBuilder> lines;
@@ -24,6 +29,12 @@ public class Canvas implements ICanvas {
 	protected String cachedLines;
 	protected boolean needUpdateCache = false;
 
+	/**
+	 *
+	 * @param width
+	 * @param height
+	 * imposta condizioni su canvas
+	 */
 	public Canvas(int width, int height) {
 		if (width < 0) {
 			throw new IllegalArgumentException();
@@ -31,7 +42,9 @@ public class Canvas implements ICanvas {
 		if (height < 0) {
 			throw new IllegalArgumentException();
 		}
-
+		/**
+		 * ci riferiamo a questa altezza e larghezza
+		 */
 		this.width = width;
 		this.height = height;
 		this.lines = new ArrayList<StringBuilder>(height);
