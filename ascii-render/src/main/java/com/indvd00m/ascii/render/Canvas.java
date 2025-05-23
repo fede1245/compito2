@@ -177,6 +177,13 @@ public class Canvas implements ICanvas {
 		needUpdateCache = true;
 	}
 
+	/**
+	 *
+	 * @param x
+	 * @param y
+	 * @param s
+	 * @param count
+	 */
 	@Override
 	public void draw(int x, int y, String s, int count) {
 		if (count <= 0) {
@@ -185,27 +192,48 @@ public class Canvas implements ICanvas {
 		draw(x, y, repeatString(s, count));
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int getWidth() {
 		return width;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int getHeight() {
 		return height;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String getText() {
 		updateCacheIfNeed();
 		return cachedText;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		return getText();
 	}
 
+	/**
+	 *
+	 * @param o
+	 * @return
+	 */
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
@@ -228,6 +256,10 @@ public class Canvas implements ICanvas {
 		return cachedLines.equals(canvas.cachedLines);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int hashCode() {
 		updateCacheIfNeed();
@@ -238,6 +270,9 @@ public class Canvas implements ICanvas {
 		return result;
 	}
 
+	/**
+	 * ciclo for
+	 */
 	@Override
 	public void clear() {
 		lines.clear();
@@ -250,6 +285,12 @@ public class Canvas implements ICanvas {
 		needUpdateCache = true;
 	}
 
+	/**
+	 *
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	@Override
 	public char getChar(int x, int y) {
 		if (x < 0 || x >= width) {
@@ -264,6 +305,13 @@ public class Canvas implements ICanvas {
 		return c;
 	}
 
+	/**
+	 *
+	 * @param x
+	 * @param y
+	 * @param c
+	 * @return
+	 */
 	@Override
 	public char setChar(int x, int y, char c) {
 		if (x < 0 || x >= width) {
@@ -280,33 +328,62 @@ public class Canvas implements ICanvas {
 		return prevC;
 	}
 
+	/**
+	 *
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	@Override
 	public boolean isCharDrawed(int x, int y) {
 		return getChar(x, y) != NULL_CHAR;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public ICanvas trim() {
 		IRegion region = getTrimmedRegion(this, ' ', NULL_CHAR);
 		return subCanvas(region);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public ICanvas trimSpaces() {
 		return trim(' ');
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public ICanvas trimNulls() {
 		return trim(NULL_CHAR);
 	}
 
+	/**
+	 *
+	 * @param trimChar
+	 * @return
+	 */
 	@Override
 	public ICanvas trim(char trimChar) {
 		IRegion region = getTrimmedRegion(this, trimChar);
 		return subCanvas(region);
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param trimChar
+	 * @return
+	 */
 	protected IRegion getTrimmedRegion(ICanvas canvas, char trimChar) {
 		int w = canvas.getWidth();
 		int h = canvas.getHeight();
@@ -315,6 +392,9 @@ public class Canvas implements ICanvas {
 		int lastX = 0;
 		int lastY = 0;
 		// first x
+		/**
+		 * ciclo for
+		 */
 		cycle:
 		for (int x = 0; x < w; x++) {
 			for (int y = 0; y < h; y++) {
@@ -372,6 +452,13 @@ public class Canvas implements ICanvas {
 		return region;
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param trimChar1
+	 * @param trimChar2
+	 * @return
+	 */
 	protected IRegion getTrimmedRegion(ICanvas canvas, char trimChar1, char trimChar2) {
 		int w = canvas.getWidth();
 		int h = canvas.getHeight();
@@ -437,6 +524,11 @@ public class Canvas implements ICanvas {
 		return region;
 	}
 
+	/**
+	 *
+	 * @param region
+	 * @return
+	 */
 	@Override
 	public ICanvas subCanvas(IRegion region) {
 		int trimWidth = region.getWidth();
