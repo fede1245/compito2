@@ -121,6 +121,13 @@ public class Line implements IElement {
 		return start;
 	}
 
+	/**
+	 *
+	 * @param d1
+	 * @param d2
+	 * @param precision
+	 * @return
+	 */
 	protected int compare(double d1, double d2, double precision) {
 		double diff = d1 - d2;
 		if (Math.abs(diff) < precision) {
@@ -150,6 +157,11 @@ public class Line implements IElement {
 		return result;
 	}
 
+	/**
+	 *
+	 * @param obj
+	 * @return
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -179,6 +191,10 @@ public class Line implements IElement {
 		return true;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
