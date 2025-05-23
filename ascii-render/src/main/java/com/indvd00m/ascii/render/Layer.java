@@ -12,6 +12,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * crea una semplice classe ILayer implementata da Layer
+ * per poi creare una lista protected, una regione e un booleano protected
+ */
 public class Layer implements ILayer {
 
 	protected IRegion region;
@@ -23,6 +27,10 @@ public class Layer implements ILayer {
 		this.region = region;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public IRegion getRegion() {
 		return region;
