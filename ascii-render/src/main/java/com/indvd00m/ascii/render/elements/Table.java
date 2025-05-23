@@ -13,9 +13,13 @@ import java.util.Collection;
 import java.util.EnumSet;
 import java.util.List;
 
-
+/**
+ * classe publica
+ */
 public class Table implements IElement {
-
+	/**
+	 * int protected
+	 */
 	protected int x;
 	protected int y;
 	protected int width;
@@ -54,6 +58,13 @@ public class Table implements IElement {
 		}
 	}
 
+	/**
+	 *
+	 * @param column
+	 * @param row
+	 * @param element
+	 * @return
+	 */
 	public IElement setElement(int column, int row, IElement element) {
 		return setElement(column, row, element, false);
 	}
@@ -82,6 +93,12 @@ public class Table implements IElement {
 		return highlights.set(index, highlight);
 	}
 
+	/**
+	 *
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	protected int coordToIndex(int x, int y) {
 		if (x <= 0 || y <= 0) {
 			return -1;
@@ -98,6 +115,12 @@ public class Table implements IElement {
 		return new Point(x, y);
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param context
+	 * @return
+	 */
 	@Override
 	public IPoint draw(ICanvas canvas, IContext context) {
 		int x = this.x;
@@ -117,7 +140,9 @@ public class Table implements IElement {
 		if (height == Integer.MIN_VALUE) {
 			height = canvas.getHeight();
 		}
-
+/**
+ * ciclo for con int al suo interno
+ */
 		// borders
 		for (int r = 0; r <= rows; r++) {
 			int cellY;
@@ -154,7 +179,9 @@ public class Table implements IElement {
 				drawBorderCellCorners(canvas, r, cellY, cellHeight, c, cellX, cellWidth, highlights);
 			}
 		}
-
+/**
+ * ciclo for con elementi
+ */
 		// elements
 		for (int i = 0; i < elements.size(); i++) {
 			IElement element = elements.get(i);
@@ -186,6 +213,17 @@ public class Table implements IElement {
 		canvas.draw(startX, startY, elementCanvas.getText());
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param r
+	 * @param cellY
+	 * @param cellHeight
+	 * @param c
+	 * @param cellX
+	 * @param cellWidth
+	 * @param highlights
+	 */
 	private void drawBorderCellCorners(ICanvas canvas, int r, int cellY, int cellHeight, int c, int cellX,
 			int cellWidth, EnumSet<CellPosition> highlights) {
 		if (r != 0 && r != rows) {
@@ -218,6 +256,9 @@ public class Table implements IElement {
 				}
 			}
 		}
+		/**
+		 * condizione
+		 */
 		if (c != 0 && c != columns) {
 			if (r == 0) {
 				if (containsNone(highlights, CellPosition.Center, CellPosition.Left)) {
@@ -250,6 +291,15 @@ public class Table implements IElement {
 		}
 	}
 
+	/**
+	 *
+	 * @param canvas
+	 * @param r
+	 * @param cellY
+	 * @param c
+	 * @param cellX
+	 * @param highlights
+	 */
 	private void drawTableCorners(ICanvas canvas, int r, int cellY, int c, int cellX,
 			EnumSet<CellPosition> highlights) {
 		if (c == 0 && r == 0) {
@@ -322,8 +372,10 @@ public class Table implements IElement {
 					containsNone(highlights, CellPosition.Up, CellPosition.Center)) {
 				canvas.draw(cellX, cellY, "╉");
 			}
+/**
+ * tre di 4 lati
+ */
 
-			// three or four corners
 			if (containsAll(highlights, CellPosition.Up, CellPosition.Center, CellPosition.Left)) {
 				canvas.draw(cellX, cellY, "╋");
 			}
@@ -353,6 +405,13 @@ public class Table implements IElement {
 		}
 	}
 
+	/**
+	 *
+	 * @param collection
+	 * @param values
+	 * @return
+	 * @param <T>
+	 */
 	protected <T> boolean containsAll(Collection<T> collection, T... values) {
 		for (T value : values) {
 			if (!collection.contains(value)) {
@@ -377,7 +436,9 @@ public class Table implements IElement {
 
 	protected EnumSet<CellPosition> getHighlightedNeighborCells(int column, int row) {
 		EnumSet<CellPosition> positions = EnumSet.noneOf(CellPosition.class);
-
+/**
+ * in base alla condizione imposta la cella
+ */
 		if (isHighlighted(column, row)) {
 			positions.add(CellPosition.Center);
 		}
@@ -415,6 +476,11 @@ public class Table implements IElement {
 				", rows=" + rows + ", elements=" + elements + "]";
 	}
 
+	/**
+	 *
+	 * @param o
+	 * @return
+	 */
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
@@ -450,6 +516,10 @@ public class Table implements IElement {
 		return highlights.equals(table.highlights);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int hashCode() {
 		int result = x;
@@ -463,6 +533,10 @@ public class Table implements IElement {
 		return result;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public int getX() {
 		return x;
 	}
